@@ -1,6 +1,6 @@
 
 import { connect, model } from 'mongoose';
-import { Course, CourseSchema } from './src/course/schemas/course.schema';
+import { Course, CourseSchema } from './src/course/schema/course.schema';
 import { Department, DepartmentSchema } from './src/department/schemas/department.schema';
 import { Advisor, AdvisorSchema } from './src/advisor/schemas/advisor.schema';
 
