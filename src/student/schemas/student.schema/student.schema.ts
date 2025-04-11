@@ -2,6 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as bcrypt from 'bcrypt';
 import { Document, Types } from 'mongoose';
 import { Advisor } from 'src/advisor/schemas/advisor.schema/advisor.schema';
+import { Course } from 'src/course/schemas/course.schema/course.schema';
 import { Department } from 'src/department/schemas/department.schema/department.schema';
 
 export type StudentDocument = Student & Document;
@@ -20,8 +21,11 @@ export class Student {
   @Prop({ required: true })
   level: number;
 
+  @Prop({ type: Types.ObjectId, ref: 'Course' })
+  course: Course; // the course of the student
+
   @Prop({ required: true, type: Types.ObjectId, ref: 'Advisor' })
-  class: Advisor;
+  class: Advisor; // the advisor of the student
 
   @Prop({ required: true, type: Types.ObjectId, ref: 'Department' })
   department: Department;// the department of the student
