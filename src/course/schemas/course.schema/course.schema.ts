@@ -16,11 +16,8 @@ export class Course {
   @Prop({ required: true })
   code: string;
 
-    @Prop({ required: true, Types: Types.ObjectId, ref: 'Advisor' })
-    tutor: Advisor; //the tutor of the course
-
+  @Prop({ required: true, Types: Types.ObjectId, ref: 'Advisor' })
+  tutor: Advisor; //the tutor of the course
 }
 
 export const CourseSchema = SchemaFactory.createForClass(Course);
-
-

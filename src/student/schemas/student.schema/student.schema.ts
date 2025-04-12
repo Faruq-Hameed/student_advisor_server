@@ -24,11 +24,9 @@ export class Student {
   @Prop({ type: Types.ObjectId, ref: 'Course' })
   course: Course; // the course of the student
 
-  @Prop({ required: true, type: Types.ObjectId, ref: 'Advisor' })
-  class: Advisor; // the advisor of the student
 
   @Prop({ required: true, type: Types.ObjectId, ref: 'Department' })
-  department: Department;// the department of the student
+  department: Department; // the department of the student
 
   @Prop({ default: false })
   async comparePassword(candidatePassword: string): Promise<boolean> {

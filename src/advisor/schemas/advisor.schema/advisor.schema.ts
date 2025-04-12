@@ -15,6 +15,7 @@ export class Advisor {
   @Prop({ required: true })
   password: string;
 
+
   @Prop({ default: false })
   async comparePassword(candidatePassword: string): Promise<boolean> {
     return bcrypt.compare(candidatePassword, this.password);
