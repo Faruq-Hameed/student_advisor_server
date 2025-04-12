@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as bcrypt from 'bcrypt';
 import { Document, Types } from 'mongoose';
+import { Department } from 'src/department/schemas/department.schema/department.schema';
 
 export type AdvisorDocument = Advisor & Document;
 
@@ -14,6 +15,9 @@ export class Advisor {
 
   @Prop({ required: true })
   password: string;
+  
+  @Prop({ required: true, type: Types.ObjectId, ref: 'Department' })
+  department: Department; // the department of the student
 
 
   @Prop({ default: false })

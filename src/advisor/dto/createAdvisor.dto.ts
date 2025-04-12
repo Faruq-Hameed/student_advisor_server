@@ -18,7 +18,5 @@ export class CreateAdvisorDto {
     @IsNotEmpty()
     department: string;
 
-    @IsString()
-    @IsNotEmpty()
-    course: string;
+
 }

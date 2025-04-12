@@ -10,6 +10,9 @@ export class Department {
   @Prop({ required: true })
   details: string;
 
+  @Prop({ required: true })
+  information: string;
+
 }
 
 export const DepartmentSchema = SchemaFactory.createForClass(Department);
