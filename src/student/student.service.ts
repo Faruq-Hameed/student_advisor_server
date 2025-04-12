@@ -28,6 +28,7 @@ export class StudentService {
       )
       .populate('course')
       .populate('department')
+      .populate('advisor')
       .exec();
   }
 
@@ -45,11 +46,15 @@ export class StudentService {
   }
 
   async findAll(): Promise<Student[]> {
-    return this.studentModel.find().populate('course').populate('department').exec();
+    return this.studentModel.find().populate('course').populate('department')
+    .populate('advisor')
+    .exec();
   }
 
   async findOne(id: string): Promise<Student> {
-    return this.studentModel.findById(id).populate('course').populate('department').exec();
+    return this.studentModel.findById(id).populate('course').populate('department')
+    .populate('advisor')
+    .exec();
   }
 
 //   async update(

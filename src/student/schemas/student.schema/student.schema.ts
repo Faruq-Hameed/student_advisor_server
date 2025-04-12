@@ -28,6 +28,9 @@ export class Student {
   @Prop({ required: true, type: Types.ObjectId, ref: 'Department' })
   department: Department; // the department of the student
 
+  @Prop({ required: true, type: Types.ObjectId, ref: 'Advisor' })
+  tutor: Advisor; //the tutor of the course
+
   @Prop({ default: false })
   async comparePassword(candidatePassword: string): Promise<boolean> {
     return bcrypt.compare(candidatePassword, this.password);
