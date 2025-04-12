@@ -29,7 +29,7 @@ export class Student {
   department: Department; // the department of the student
 
   @Prop({ required: true, type: Types.ObjectId, ref: 'Advisor' })
-  tutor: Advisor; //the tutor of the course
+  advisor: Advisor; //the tutor of the course
 
   @Prop({ default: false })
   async comparePassword(candidatePassword: string): Promise<boolean> {

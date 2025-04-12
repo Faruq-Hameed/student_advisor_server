@@ -15,14 +15,14 @@ export class CreateStudentDto {
     password: string;
     
     @IsString()
-    @IsOptional()
     department: string;
     
     @IsString()
-    @IsOptional()
     course: string;
 
     @IsString()
-    @IsOptional()
+    level: string;
+
+    @IsString()
     advisor: string;
 }
