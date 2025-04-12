@@ -6,7 +6,4 @@ export class CreateDepartmentDto {
     @IsNotEmpty()
     details: string;
 
-    @IsString()
-    @IsNotEmpty()
-    addedBy: string; // department head
 }

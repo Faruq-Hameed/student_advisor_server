@@ -1,8 +1,11 @@
 
 import { connect, model } from 'mongoose';
-import { Course, CourseSchema } from './src/course/schema/course.schema';
-import { Department, DepartmentSchema } from './src/department/schemas/department.schema';
-import { Advisor, AdvisorSchema } from './src/advisor/schemas/advisor.schema';
+import { AdvisorSchema } from 'src/advisor/schemas/advisor.schema/advisor.schema';
+import { CourseSchema } from 'src/course/schemas/course.schema/course.schema';
+import { DepartmentSchema } from 'src/department/schemas/department.schema/department.schema';
+// import { Course, CourseSchema } from './src/course/schema/course.schema';
+// import { Department, DepartmentSchema } from './src/department/schemas/department.schema';
+// import { Advisor, AdvisorSchema } from './src/advisor/schemas/advisor.schema';
 
 async function seed() {
   await connect('mongodb://localhost:27017/students_db');

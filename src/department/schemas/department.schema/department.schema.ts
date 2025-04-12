@@ -10,8 +10,6 @@ export class Department {
   @Prop({ required: true })
   details: string;
 
-  @Prop({ required: true, Types: Types.ObjectId, ref: 'Advisor' })
-  addedBy: Advisor; //department head
 }
 
 export const DepartmentSchema = SchemaFactory.createForClass(Department);

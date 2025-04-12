@@ -13,7 +13,7 @@ export class Student {
   name: string;
 
   @Prop({ required: true })
-  email: string;
+  email?: string;
 
   @Prop({ required: true })
   password: string;

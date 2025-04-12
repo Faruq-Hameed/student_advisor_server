@@ -18,6 +18,32 @@ export class StudentService {
     return createdStudent.save();
   }
 
+  //async join department where department id is used
+  async joinDepartment(studentId: string, departmentId: string): Promise<Student> {
+    return this.studentModel
+      .findByIdAndUpdate(
+        studentId,
+        { $set: { department: departmentId } },
+        { new: true },
+      )
+      .populate('course')
+      .populate('department')
+      .exec();
+  }
+
+  //async join course where course id is used
+  async joinCourse(studentId: string, courseId: string): Promise<Student> {
+    return this.studentModel
+      .findByIdAndUpdate(
+        studentId,
+        { $set: { course: courseId } },
+        { new: true },
+      )
+      .populate('course')
+      .populate('department')
+      .exec();
+  }
+
   async findAll(): Promise<Student[]> {
     return this.studentModel.find().populate('course').populate('department').exec();
   }
