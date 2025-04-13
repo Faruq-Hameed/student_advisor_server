@@ -22,6 +22,7 @@ export class StudentService {
 
   //async join department where department id is used
   async changeDepartment(studentId: string, departmentId: string): Promise<Student> {
+    await this.departmentRepository.findOne(departmentId)
     return this.studentModel
       .findByIdAndUpdate(
         studentId,

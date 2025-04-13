@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import {
   Department,
   DepartmentDocument,
@@ -27,9 +27,14 @@ export class DepartmentService {
     }
     
     async findOne(id: string): Promise<Department> {
-        return this.departmentModel
+        const department = await this.departmentModel
         .findById(id)
         .populate('addedBy')
         .exec();
+
+        if (!department) {
+            throw new NotFoundException('Department not found');
+        }
+        return department;
     }
 }
