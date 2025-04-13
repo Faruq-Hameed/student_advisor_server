@@ -16,6 +16,8 @@ export class StudentService {
   ) {}
 
   async create(createStudentDto: CreateStudentDto): Promise<Student> {
+     //check if the department exist
+     await this.departmentRepository.findOne(departmentId)
     const createdStudent = new this.studentModel(createStudentDto);
     return createdStudent.save();
   }
