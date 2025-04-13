@@ -6,11 +6,13 @@ import {
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateStudentDto } from './dto/createStudent.dto';
+import { DepartmentService } from 'src/department/department.service';
 
 @Injectable()
 export class StudentService {
   constructor(
     @InjectModel(Student.name) private studentModel: Model<StudentDocument>,
+    private departmentRepository: DepartmentService
   ) {}
 
   async create(createStudentDto: CreateStudentDto): Promise<Student> {
@@ -19,7 +21,7 @@ export class StudentService {
   }
 
   //async join department where department id is used
-  async joinDepartment(studentId: string, departmentId: string): Promise<Student> {
+  async changeDepartment(studentId: string, departmentId: string): Promise<Student> {
     return this.studentModel
       .findByIdAndUpdate(
         studentId,
