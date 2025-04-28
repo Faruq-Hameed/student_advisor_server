@@ -14,10 +14,10 @@ export class DepartmentService {
         private departmentModel: Model<DepartmentDocument>,
     ) {}
     
-    async create(createDepartmentDto: CreateDepartmentDto): Promise<Department> {
-        const createdDepartment = new this.departmentModel(createDepartmentDto);
-        return createdDepartment.save();
-    }
+    // async create(createDepartmentDto: CreateDepartmentDto): Promise<Department> {
+    //     const createdDepartment = new this.departmentModel(createDepartmentDto);
+    //     return createdDepartment.save();
+    // }
     
     async findAll(): Promise<Department[]> {
         return this.departmentModel
