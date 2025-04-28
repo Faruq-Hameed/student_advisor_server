@@ -8,6 +8,7 @@ import { CourseModule } from './course/course.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import {validate} from './config/env.validation'; // Import the validate function for environment variable validation
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -38,7 +39,7 @@ import {validate} from './config/env.validation'; // Import the validate functio
     }),
     MongooseModule.forRoot(process.env.MONGODB_URI),
   // Importing the modules for students, departments, advisors, and courses
-    StudentModule, DepartmentModule, AdvisorModule, CourseModule 
+    StudentModule, DepartmentModule, AdvisorModule, CourseModule, AuthModule 
   ],
   controllers: [AppController],
   providers: [AppService],
