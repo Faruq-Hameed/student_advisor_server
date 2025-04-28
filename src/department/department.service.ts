@@ -15,7 +15,7 @@ export class DepartmentService {
     ) {}
     
     async create(createDepartmentDto: CreateDepartmentDto): Promise<Department> {
-        // const createdDepartment = new this.departmentModel(createDepartmentDto);
+        const createdDepartment = new this.departmentModel(createDepartmentDto);
         return createdDepartment.save();
     }
     
